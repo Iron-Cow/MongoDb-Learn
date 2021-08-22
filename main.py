@@ -46,4 +46,33 @@ record1 = collection.find({'_id': 1})
 balance2 = collection.find_one({'_id': 1})['balance']
 print(f'id 1 balance = {balance1}')
 
+##########################################
+# update single record
+number_for_name = randint(1, 100)
+new_name2 = f"New_name_value{number_for_name}"
+name_old2 = collection.find_one({'_id': 2})['name']
+print(f"changing name {name_old2} to {new_name2}")
+if name_old2 != new_name2:
+    collection.update_one({"_id": 2}, {"$set": {"name": new_name2}})
+    print("changed successfully")
+else:
+    print('names are the same :(')
+
+balance3 = collection.find_one({'_id': 3})['balance']
+print(f'adding 100 to 3rd record balance. now it is {balance3}...')
+collection.update_one({"_id": 3}, {"$set": {"balance": balance3 + 100}})
+print(f"poof... now it is {collection.find_one({'_id': 3})['balance']}")
+
+
+# deleting records
+
+print(f'It is {collection.count_documents({"_id": 1})} record(s) with id 1')
+collection.delete_one({"_id": 1})
+print(f'poof... now it is {collection.count_documents({"_id": 1})} record(s) with id 1')
+
+collection.delete_many({})  # delete ALL records in collection
+print('all records deleted in collection')
+
+##########################################
+
 print('Finished successfully')
