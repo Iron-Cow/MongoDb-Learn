@@ -4,9 +4,9 @@
 * clone project 
 * `pip intall requirements.txt`
 * create `.env` file
-    + insert your db data
+    + insert your db data inside it:
         
-        DB_USER=test_admin
+      ` DB_USER=test_admin
         DB_PASS=supersecret
-        DB_COLLECTION=MongoClusterTestUserDemoName
+        DB_COLLECTION=MongoClusterTestUserDemoName`
   
